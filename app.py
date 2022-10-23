@@ -15,7 +15,7 @@ def get_stock_value(ticker):
     bl = create_business_logic()
     prediction = bl.do_predictions_for(ticker)
 
-    return f'{prediction}\n'
+    return f'Linear regression for {ticker} : {prediction}\n'
 
 
 @app.route('/getversion/')
