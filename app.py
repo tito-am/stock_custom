@@ -19,7 +19,7 @@ def get_stock_value(ticker):
     df = get_last_stock_price(ticker) 
     print(df)
     pred_sma30 = df['close'].rolling(30).mean()
-    pred_sma30 = pred_sma30[-1]
+    pred_sma30 = pred_sma30[29]
 
     return f'Linear regression for {ticker} : {prediction}\n SMA30 for {ticker} : {pred_sma30}'
 
