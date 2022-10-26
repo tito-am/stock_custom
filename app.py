@@ -21,8 +21,14 @@ def get_stock_value(ticker):
     pred_sma30 = df['close'].rolling(30).mean()
     pred_sma30 = pred_sma30[29]
     price= df['close'][29]
+    
+    if pred_sma30 < price:
+        suggestion = 'Sell'
+    else:
+        suggestion =  'Buy'
+    
 
-    return f'Linear regression for {ticker} : {prediction}\n SMA30 for {ticker} : {pred_sma30}\n D-1 price: {price}'
+    return f'SMA30 for {ticker} : {pred_sma30}\n D-1 price: {price}\n Suggestion: {suggestion}'
 
 
 @app.route('/getversion/')
