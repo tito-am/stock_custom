@@ -28,7 +28,7 @@ def get_stock_value(ticker):
         suggestion =  'Buy'
     
 
-    return f'SMA30 for {ticker} : {pred_sma30}\n D-1 price: {price}\n Suggestion: {suggestion}'
+    return f' Suggestion for {ticker}: {suggestion}'
 
 
 @app.route('/getversion/')
