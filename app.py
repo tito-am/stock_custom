@@ -1,19 +1,24 @@
 from flask import Flask
 import git
 from src.business_logic.process_query import create_business_logic
+from src.IO.get_data_from_yahoo import get_last_stock_price
+
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def hello():
-    return f'Hello dear humans, you should use a better route:!\nEX: get_stock_val/<ticker>\n'
+    return f'Hello dear humans and zombies, you should use a better route:!\nEX: get_stock_val/<ticker>\n'
 
 
 @app.route('/get_stock_val/<ticker>', methods=['GET'])
 def get_stock_value(ticker):
     bl = create_business_logic()
     prediction = bl.do_predictions_for(ticker)
+    df = get_last_stock_price(ticker) 
+    print(df)
+    
 
     return f'Linear regression for {ticker} : {prediction}\n SMA30 for {ticker}'
 
