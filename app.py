@@ -18,9 +18,10 @@ def get_stock_value(ticker):
     prediction = bl.do_predictions_for(ticker)
     df = get_last_stock_price(ticker) 
     print(df)
+    pred_sma30 = df['close'].rolling(30).mean()
     
 
-    return f'Linear regression for {ticker} : {prediction}\n SMA30 for {ticker}'
+    return f'Linear regression for {ticker} : {prediction}\n SMA30 for {ticker} : {pred_sma30}'
 
 
 @app.route('/getversion/')
