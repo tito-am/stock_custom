@@ -22,6 +22,8 @@ def get_stock_value(ticker):
     pred_sma30 = pred_sma30[29]
     price= df['close'][29]
     
+    pred_sma30 = (pred_sma30 + prediction)/2
+    
     if pred_sma30 < price:
         suggestion = 'Sell'
     else:
